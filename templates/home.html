@@ -1,0 +1,148 @@
+{% extends 'main.html' %}
+{% block content %}
+{% if message %}
+        <div class="alert alert-danger">{{ message }}</div>
+    {% endif %}
+<div class="container mt-4">
+    <div class="hero-section text-center py-5 mb-5" data-aos="fade-up" style="background: linear-gradient(135deg, rgba(37,99,235,0.05) 0%, rgba(20,184,166,0.1) 100%); border-radius: 20px; padding: 60px 20px; border: 1px solid rgba(20,184,166,0.2);">
+        <h1 class="display-4 font-weight-bold mb-3" style="color: var(--primary); font-family: 'Poppins', sans-serif;">AI-Powered Disease Detection</h1>
+        <p class="lead mb-4" style="color: var(--text); max-width: 600px; margin: 0 auto; font-family: 'Inter', sans-serif;">Analyze symptoms and predict possible health risks using state-of-the-art machine learning models trained on thousands of clinical data points.</p>
+        <a href="#diagnostics" class="btn btn-gradient mt-3" style="padding: 12px 35px; font-size: 1.1rem; border-radius: 50px;">Start Diagnosis</a>
+    </div>
+
+    <div class="row text-center mb-5" data-aos="fade-up" data-aos-delay="100">
+        <div class="col-md-12">
+            <h3 class="mb-4 font-weight-bold" style="color: var(--primary);">System Accuracy Rates</h3>
+            <div class="d-flex justify-content-center flex-wrap" style="gap: 12px;">
+                <span class="badge px-3 py-2" style="font-size: 0.95rem; border-radius: 20px; background-color: rgba(37,99,235,0.1); color: var(--primary); border: 1px solid var(--primary);">Diabetes: <strong>98.25%</strong></span>
+                <span class="badge px-3 py-2" style="font-size: 0.95rem; border-radius: 20px; background-color: rgba(37,99,235,0.1); color: var(--primary); border: 1px solid var(--primary);">Breast Cancer: <strong>98.25%</strong></span>
+                <span class="badge px-3 py-2" style="font-size: 0.95rem; border-radius: 20px; background-color: rgba(37,99,235,0.1); color: var(--primary); border: 1px solid var(--primary);">Heart Disease: <strong>85.25%</strong></span>
+                <span class="badge px-3 py-2" style="font-size: 0.95rem; border-radius: 20px; background-color: rgba(37,99,235,0.1); color: var(--primary); border: 1px solid var(--primary);">Kidney Disease: <strong>99.00%</strong></span>
+                <span class="badge px-3 py-2" style="font-size: 0.95rem; border-radius: 20px; background-color: rgba(37,99,235,0.1); color: var(--primary); border: 1px solid var(--primary);">Liver Disease: <strong>78.00%</strong></span>
+                <span class="badge px-3 py-2" style="font-size: 0.95rem; border-radius: 20px; background-color: rgba(37,99,235,0.1); color: var(--primary); border: 1px solid var(--primary);">Malaria: <strong>96.00%</strong></span>
+                <span class="badge px-3 py-2" style="font-size: 0.95rem; border-radius: 20px; background-color: rgba(37,99,235,0.1); color: var(--primary); border: 1px solid var(--primary);">Pneumonia: <strong>95.00%</strong></span>
+            </div>
+        </div>
+    </div>
+
+    <div id="diagnostics" class="text-center mb-5" data-aos="fade-up">
+        <h3 class="font-weight-bold" style="color: var(--text);">Supported Diagnostics</h3>
+        <p class="text-muted" style="font-size: 1.05rem;">Explore the health conditions our platform can assist in identifying</p>
+    </div>
+
+    <div class="row">
+        <!-- Diabetes -->
+        <div class="col-md-6 col-lg-4 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="100">
+            <div class="card w-100 d-flex flex-column">
+                <h4 class="mb-3"><i class="fa fa-tint text-primary" style="margin-right: 10px;"></i> Diabetes</h4>
+                <p class="text-muted" style="font-size: 0.95rem; flex-grow: 1;">A metabolic disease that occurs when your blood glucose is too high, preventing your body from effectively utilizing energy.</p>
+                <h5 class="mt-4 pt-3 border-top" style="font-size: 1rem;">Key Symptoms</h5>
+                <ul class="list-unstyled mb-4" style="font-size: 0.9rem; color: var(--text);">
+                    <li class="mb-2"><i class="fa fa-check-circle" style="color: var(--accent); margin-right: 8px;"></i>Frequent urination</li>
+                    <li class="mb-2"><i class="fa fa-check-circle" style="color: var(--accent); margin-right: 8px;"></i>Excessive thirst</li>
+                    <li class="mb-2"><i class="fa fa-check-circle" style="color: var(--accent); margin-right: 8px;"></i>Extreme fatigue</li>
+                    <li class="mb-2"><i class="fa fa-check-circle" style="color: var(--accent); margin-right: 8px;"></i>Blurry vision</li>
+                </ul>
+                <a href="{{ url_for('diabetesPage') }}" class="btn btn-outline-primary btn-block mt-auto" style="border-radius: 8px; font-weight: 600; padding: 10px;">Check for Diabetes</a>
+            </div>
+        </div>
+
+        <!-- Breast Cancer -->
+        <div class="col-md-6 col-lg-4 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="200">
+            <div class="card w-100 d-flex flex-column">
+                <h4 class="mb-3"><i class="fa fa-female text-primary" style="margin-right: 10px;"></i> Breast Cancer</h4>
+                <p class="text-muted" style="font-size: 0.95rem; flex-grow: 1;">A devastating form of cancer that forms in the cells of the breasts, heavily prevalent and most frequently diagnosed in women.</p>
+                <h5 class="mt-4 pt-3 border-top" style="font-size: 1rem;">Key Symptoms</h5>
+                <ul class="list-unstyled mb-4" style="font-size: 0.9rem; color: var(--text);">
+                    <li class="mb-2"><i class="fa fa-check-circle" style="color: var(--accent); margin-right: 8px;"></i>Lump or thickening</li>
+                    <li class="mb-2"><i class="fa fa-check-circle" style="color: var(--accent); margin-right: 8px;"></i>Change in size or shape</li>
+                    <li class="mb-2"><i class="fa fa-check-circle" style="color: var(--accent); margin-right: 8px;"></i>Skin dimpling</li>
+                    <li class="mb-2"><i class="fa fa-check-circle" style="color: var(--accent); margin-right: 8px;"></i>Redness or pitting</li>
+                </ul>
+                <a href="{{ url_for('cancerPage') }}" class="btn btn-outline-primary btn-block mt-auto" style="border-radius: 8px; font-weight: 600; padding: 10px;">Check for Cancer</a>
+            </div>
+        </div>
+
+        <!-- Chronic kidney disease -->
+        <div class="col-md-6 col-lg-4 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="300">
+            <div class="card w-100 d-flex flex-column">
+                <h4 class="mb-3"><i class="fa fa-filter text-primary" style="margin-right: 10px;"></i> Kidney Disease</h4>
+                <p class="text-muted" style="font-size: 0.95rem; flex-grow: 1;">The gradual loss of organ function, preventing the effective filtration of metabolic wastes and excess fluids from your blood.</p>
+                <h5 class="mt-4 pt-3 border-top" style="font-size: 1rem;">Key Symptoms</h5>
+                <ul class="list-unstyled mb-4" style="font-size: 0.9rem; color: var(--text);">
+                    <li class="mb-2"><i class="fa fa-check-circle" style="color: var(--accent); margin-right: 8px;"></i>Nausea & vomiting</li>
+                    <li class="mb-2"><i class="fa fa-check-circle" style="color: var(--accent); margin-right: 8px;"></i>Fatigue and weakness</li>
+                    <li class="mb-2"><i class="fa fa-check-circle" style="color: var(--accent); margin-right: 8px;"></i>Muscle twitches</li>
+                    <li class="mb-2"><i class="fa fa-check-circle" style="color: var(--accent); margin-right: 8px;"></i>Cramps & swelling</li>
+                </ul>
+                <a href="{{ url_for('kidneyPage') }}" class="btn btn-outline-primary btn-block mt-auto" style="border-radius: 8px; font-weight: 600; padding: 10px;">Check for Kidney Disease</a>
+            </div>
+        </div>
+
+        <!-- Heart Disease -->
+        <div class="col-md-6 col-lg-4 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="400">
+            <div class="card w-100 d-flex flex-column">
+                <h4 class="mb-3"><i class="fa fa-heartbeat text-primary" style="margin-right: 10px;"></i> Heart Disease</h4>
+                <p class="text-muted" style="font-size: 0.95rem; flex-grow: 1;">A variety of conditions affecting the heart muscle, valves, or rhythm, leading to cardiovascular complications.</p>
+                <h5 class="mt-4 pt-3 border-top" style="font-size: 1rem;">Key Symptoms</h5>
+                <ul class="list-unstyled mb-4" style="font-size: 0.9rem; color: var(--text);">
+                    <li class="mb-2"><i class="fa fa-check-circle" style="color: var(--accent); margin-right: 8px;"></i>Chest discomfort</li>
+                    <li class="mb-2"><i class="fa fa-check-circle" style="color: var(--accent); margin-right: 8px;"></i>Shortness of breath</li>
+                    <li class="mb-2"><i class="fa fa-check-circle" style="color: var(--accent); margin-right: 8px;"></i>Pain in neck/jaw</li>
+                    <li class="mb-2"><i class="fa fa-check-circle" style="color: var(--accent); margin-right: 8px;"></i>Numbness in limbs</li>
+                </ul>
+                <a href="{{ url_for('heartPage') }}" class="btn btn-outline-primary btn-block mt-auto" style="border-radius: 8px; font-weight: 600; padding: 10px;">Check for Heart Disease</a>
+            </div>
+        </div>
+
+        <!-- Liver disease -->
+        <div class="col-md-6 col-lg-4 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="500">
+            <div class="card w-100 d-flex flex-column">
+                <h4 class="mb-3"><i class="fa fa-flask text-primary" style="margin-right: 10px;"></i> Liver Disease</h4>
+                <p class="text-muted" style="font-size: 0.95rem; flex-grow: 1;">A range of conditions that damage the liver and prevent it from functioning properly, often resulting in jaundice or abdominal swelling.</p>
+                <h5 class="mt-4 pt-3 border-top" style="font-size: 1rem;">Key Symptoms</h5>
+                <ul class="list-unstyled mb-4" style="font-size: 0.9rem; color: var(--text);">
+                    <li class="mb-2"><i class="fa fa-check-circle" style="color: var(--accent); margin-right: 8px;"></i>Jaundice (yellow skin)</li>
+                    <li class="mb-2"><i class="fa fa-check-circle" style="color: var(--accent); margin-right: 8px;"></i>Abdominal swelling</li>
+                    <li class="mb-2"><i class="fa fa-check-circle" style="color: var(--accent); margin-right: 8px;"></i>Dark urine color</li>
+                    <li class="mb-2"><i class="fa fa-check-circle" style="color: var(--accent); margin-right: 8px;"></i>Chronic fatigue</li>
+                </ul>
+                <a href="{{ url_for('liverPage') }}" class="btn btn-outline-primary btn-block mt-auto" style="border-radius: 8px; font-weight: 600; padding: 10px;">Check for Liver Disease</a>
+            </div>
+        </div>
+
+        <!-- Malaria -->
+        <div class="col-md-6 col-lg-4 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="600">
+            <div class="card w-100 d-flex flex-column">
+                <h4 class="mb-3"><i class="fa fa-bug text-primary" style="margin-right: 10px;"></i> Malaria</h4>
+                <p class="text-muted" style="font-size: 0.95rem; flex-grow: 1;">A serious mosquito-borne infectious disease spread by parasites. Symptoms begin 10 to 15 days after being bitten by an infected mosquito.</p>
+                <h5 class="mt-4 pt-3 border-top" style="font-size: 1rem;">Key Symptoms</h5>
+                <ul class="list-unstyled mb-4" style="font-size: 0.9rem; color: var(--text);">
+                    <li class="mb-2"><i class="fa fa-check-circle" style="color: var(--accent); margin-right: 8px;"></i>High Fever</li>
+                    <li class="mb-2"><i class="fa fa-check-circle" style="color: var(--accent); margin-right: 8px;"></i>Shaking Chills</li>
+                    <li class="mb-2"><i class="fa fa-check-circle" style="color: var(--accent); margin-right: 8px;"></i>Severe Headache</li>
+                    <li class="mb-2"><i class="fa fa-check-circle" style="color: var(--accent); margin-right: 8px;"></i>Nausea and vomiting</li>
+                </ul>
+                <a href="{{ url_for('malariaPage') }}" class="btn btn-outline-primary btn-block mt-auto" style="border-radius: 8px; font-weight: 600; padding: 10px;">Check for Malaria</a>
+            </div>
+        </div>
+
+        <!-- Pneumonia -->
+        <div class="col-md-6 col-lg-4 offset-lg-4 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="700">
+            <div class="card w-100 d-flex flex-column">
+                <h4 class="mb-3"><i class="fa fa-lungs text-primary" style="margin-right: 10px;"></i> Pneumonia</h4>
+                <p class="text-muted" style="font-size: 0.95rem; flex-grow: 1;">An infection inflating the air sacs in one or both lungs, which may fill with fluid or pus, producing a severe cough.</p>
+                <h5 class="mt-4 pt-3 border-top" style="font-size: 1rem;">Key Symptoms</h5>
+                <ul class="list-unstyled mb-4" style="font-size: 0.9rem; color: var(--text);">
+                    <li class="mb-2"><i class="fa fa-check-circle" style="color: var(--accent); margin-right: 8px;"></i>Cough with mucus</li>
+                    <li class="mb-2"><i class="fa fa-check-circle" style="color: var(--accent); margin-right: 8px;"></i>Fever & sweating</li>
+                    <li class="mb-2"><i class="fa fa-check-circle" style="color: var(--accent); margin-right: 8px;"></i>Shortness of breath</li>
+                    <li class="mb-2"><i class="fa fa-check-circle" style="color: var(--accent); margin-right: 8px;"></i>Rapid breathing</li>
+                </ul>
+                <a href="{{ url_for('pneumoniaPage') }}" class="btn btn-outline-primary btn-block mt-auto" style="border-radius: 8px; font-weight: 600; padding: 10px;">Check for Pneumonia</a>
+            </div>
+        </div>
+
+    </div>
+</div>
+{% endblock %}

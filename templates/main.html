@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="og:title" content="SUS Disease Detector">
+  <meta name="author" content="VENU GOPAL KADAMBA">
+  <meta name="og:image" content="static/logo1.png">
+  <meta name="Keywords" content="Flask, Machine Learning, Deep Learning, Artificial Intelligence, AI, ML,DL, Web Development">
+  <meta name="description" content="A Machine Learning and Deep Learning based webapp for Multiple Disease Prediction.">
+  <title>SUS Disease Detector</title>
+  <link rel="icon" href="{{ url_for('static', filename = 'logo1.png') }}" type="image/icon type">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"/>
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="canonical" href="https://getbootstrap.com/docs/4.0/examples/sticky-footer/">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  
+  <style>
+    :root {
+      --primary: #2563EB;
+      --accent: #14B8A6;
+      --bg: #F8FAFC;
+      --card-bg: #FFFFFF;
+      --text: #0F172A;
+    }
+
+    html, body { 
+        height: 100%; 
+        margin: 0; 
+        background-color: var(--bg);
+        color: var(--text);
+        font-family: 'Inter', sans-serif;
+        scroll-behavior: smooth;
+    }
+
+    h1, h2, h3, h4, h5, h6, .navbar-brand {
+        font-family: 'Poppins', sans-serif;
+        font-weight: 600;
+        color: var(--text);
+    }
+
+    h2 { font-size: 2rem; }
+    h3 { font-size: 1.75rem; }
+    h4 { font-size: 1.5rem; }
+    h5 { font-size: 1.15rem; font-weight: 700; color: var(--primary); }
+
+    body { 
+      display: flex; 
+      flex-direction: column; 
+    }
+
+    .navbar {
+      background: rgba(255, 255, 255, 0.85) !important;
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(0,0,0,0.05);
+      padding: 15px 20px;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+    }
+
+    .navbar-brand {
+      color: var(--primary) !important;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+    }
+
+    .navbar-brand i {    
+      color: var(--accent);
+      margin-right: 8px;
+    }
+
+    .navbar .navbar-nav .nav-link {
+      color: var(--text) !important;
+      font-weight: 500;
+      transition: color 0.3s ease, transform 0.2s ease;
+      margin: 0 8px;
+    }
+
+    .navbar .navbar-nav .nav-link:hover {
+      color: var(--primary) !important;
+      transform: translateY(-1px);
+    }
+
+    .navbar-toggler {
+      border-color: rgba(15, 23, 42, 0.1);
+    }
+    
+    .navbar-toggler-icon {
+      background-image: url("data:image/svg+xml,%3csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3e%3cpath stroke='rgba(15, 23, 42, 0.7)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+    }
+
+    .card {
+      background-color: var(--card-bg);
+      border: none !important;
+      border-radius: 16px;
+      box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.05), 0 4px 6px -2px rgba(0, 0, 0, 0.025) !important;
+      transition: box-shadow 0.3s ease, transform 0.3s ease;
+      margin-bottom: 24px;
+      padding: 24px;
+    }
+
+    .card:hover {
+      box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04) !important;
+      transform: translateY(-5px);
+    }
+
+    ul {
+        line-height: 1.8;
+    }
+
+    main {
+        flex: 1 0 auto;
+        padding-top: 80px; 
+    }
+
+    .btn-gradient {
+        background: linear-gradient(135deg, var(--primary) 0%, #3B82F6 100%);
+        color: white;
+        border: none;
+        border-radius: 8px;
+        padding: 10px 20px;
+        font-weight: 600;
+        transition: all 0.3s ease;
+    }
+
+    .btn-gradient:hover {
+        background: linear-gradient(135deg, #1D4ED8 0%, var(--primary) 100%);
+        color: white;
+        transform: translateY(-2px);
+        box-shadow: 0 4px 12px rgba(37, 99, 235, 0.2);
+    }
+
+    .footer {
+        background-color: #FFFFFF;
+        padding: 24px 0;
+        border-top: 1px solid rgba(0,0,0,0.05);
+        color: var(--text);
+        text-align: center;
+        margin-top: auto;
+    }
+  </style>
+
+</head>
+<body>
+	<nav class="navbar navbar-expand-lg fixed-top">
+        <a class="navbar-brand" href="{{ url_for('home') }}" style="font-size: 1.4rem;">
+            <i class="fa fa-heartbeat"></i> SUS Disease Detector
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+           <span class="navbar-toggler-icon"></span>
+         </button>
+         <div class="collapse navbar-collapse" id="navbarNav">
+           <ul class="navbar-nav ml-auto">
+             <li class="nav-item">
+               <a href="{{ url_for('home') }}" class="nav-link">Home</a>
+             </li>
+             <li class="nav-item">
+               <a class="nav-link" href="{{ url_for('diabetesPage') }}">Diabetes</a>
+             </li>
+             <li class="nav-item">
+               <a class="nav-link" href="{{ url_for('cancerPage') }}">Breast Cancer</a>
+             </li>
+             <li class="nav-item">
+                <a class="nav-link" href="{{ url_for('heartPage') }}">Heart</a>
+             </li>
+             <li class="nav-item">
+                <a class="nav-link" href="{{ url_for('kidneyPage') }}">Kidney</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{{ url_for('liverPage') }}">Liver</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{{ url_for('malariaPage') }}">Malaria</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{{ url_for('pneumoniaPage') }}">Pneumonia</a>
+              </li>
+           </ul>
+        </div>
+    </nav>
+  <main>
+    <div class="container-fluid" style="margin-bottom: 20px; padding-top: 40px;">
+    {% block content %}
+
+    {% endblock %}
+    </div>
+  </main>
+  
+  <footer class="footer">
+    <div class="container">
+      <p class="mb-0" style="font-weight: 500; font-size: 0.95rem;">
+        Made with <i class="fa fa-heart" style="color: #ef4444;"></i> by Team SUS.exe
+      </p>
+    </div>
+  </footer>
+
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    AOS.init({
+      duration: 800,
+      once: true,
+      offset: 50
+    });
+  </script>
+</body>
+</html>

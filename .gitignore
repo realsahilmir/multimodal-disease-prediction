@@ -1,0 +1,33 @@
+# Virtual environments
+.venv/
+.venv_new/
+venv/
+env/
+ENV/
+
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# IDEs and Editors
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Large temporary files
+*.log
+*.sqlite3
+*.db
+tmp/
+temp/
+.temp/
+
+# Jupyter Notebook checkpoints
+.ipynb_checkpoints/
